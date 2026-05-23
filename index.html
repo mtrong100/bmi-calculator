@@ -1,1455 +1,1810 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="system">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Tính chỉ số BMI của bạn nhanh chóng và chính xác / Calculate your BMI quickly and accurately" />
+  <meta name="theme-color" content="#1565C0" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1A1C2E" media="(prefers-color-scheme: dark)" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="BMI" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAEhUlEQVRYhb2XS4wUVRSGv6qububBgMyAiDOoKI9AQAIqOmoIIis2bnyEnbIgLowJxr2zdENiQgIRI4lxIRGDG+MGBAwYCJLgxiA4yCgSGGDC0Myja7ru+V1Ud1d1dzWviXTSqa6+dc93z/n/c2+3R/o1IH/DE26rj20Bb5Un9Qj5SCAQlasElbckIL4FpcaojjtJ10yckJfbfXL7I4fSSK/64bWvtYyp6ACwIg5UH1AigZOCq0avjSmBJ3MrI+bs2ytB+N6/Hy2crC3g1a+0NBe5E0jdlTybAzTAa1W5K7xaPZKqoRM3Jic2Dg0sKvkMyPemogNm6jYJJzATzlR3NYuDqXZPPCalrllzwdLzBDL6ZwftuwC8/j3RVg99mV49tWxUS7hZ8/QzSZWa59bPS1XSooj+wJxt8f0EogZ90zq3gifj6RhZ8LoYPtgHgcGzZq10a9C6KcO7+CUNpzm+mbchkOhRI5wkQJJhkvnjfQGr8o5LoUfpuqOwwOf2qMjfLjNYSlUznXmGeT2xIHCmXB2sAV7ng4pPVi4vsKnduDnl0xlGdM2FH/4QPRfLnJuob71sT9ViB4GzLM1bGS6uhDMxMiYKXpmTFyNmhDlMXl231GmekrBeBuGt/GxS9wbPcHvGwiuuyPZU0yIgiKwFPMtwddqKVxblQXDswlS227MWWFdNEVQ7ICujbf0FnuvNVdsXBO0xk1JZrH+mAMDPgyFtgYcHTJarJYpDnhoK2X30dkanxNUKzLLhIDrysO9MyFiYfP/GqgKHz4cUS8KvLO2LX8bpavN4fekMvv9tstbCnXmPNQsLiS9S8Gp1A+daa37kzzI9nR7H/yrXAmxYnOfH36eQxJreAEkcG4wlWPdEnuODJawi6+aVbfx0dgLnLNUZ9Qedb2Y4s4Y9PXbz6UsRa3sD5nd5PN3ts7Yv4MKNKDkfFFuu6v7zwxFrF+ZZPDdgwSyfdU/N4PRQWDkXKueEE2aGc4Y5JSZsNFzfbJ89b8/ksVk+y+b5jE+J5fMDfB96Ojx2HBpL2tKJjzfN5J3nO3Emzl4p05H3WNGb58VFBd7de51/RsoNHRVXO5Blt5pZnN3VomEVcw8XHXO74oPDKrLFzxqSKDvjejH+bMDV0QhIMs/ajLz5n4yqZatJtAXQ3e7Tnoeb444b4672zPaNMwGx42Cx1iY9HT5zOjwmQmNkzDERWmbmVSMGptZwSYyHMFaKMvu8em+WBB0uRgzfat4zWm12/p3gdzxSa/cNz2RsWC13WoH/oPDGI/tB4LEJpwEv2/TgSAQPAv9u2zz65uTwvViDLS908vdIxJu7rt4XvFIBRUjB/WS+83CRvjm5mg8kuHwzu8/vBEdyAeKypCfvWXOJo+cmp1X21Nxh30wH7wc+Xc3r59opH59dkuyhwxF47PNHP330jKTPHzpcnHZLVu/3AW6FY9uBIw8LLumaM3uLAc/i3xQ7l4S3usLNYHuR9H9nbjnvJfatGYLUv+Pqq+vDoZch9z6y9ZJ6JQXThDuJYdCvoG/cktX7GfCsyvsPJ0LyZekG1k4AAAAASUVORK5CYII=" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMUU5MEZGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNTVDQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2hpbmUiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSI2MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBPbmUgVUkgOCByb3VuZGVkIHNxdWFyZSBiYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTIwIiBmaWxsPSJ1cmwoI2JnKSIvPgogIDwhLS0gU2hpbmUgb3ZlcmxheSAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEyMCIgZmlsbD0idXJsKCNzaGluZSkiLz4KICA8IS0tIFNjYWxlL2JhbGFuY2UgaWNvbiByZXByZXNlbnRpbmcgQk1JIC0tPgogIDwhLS0gU2NhbGUgYmFzZSAtLT4KICA8cmVjdCB4PSIyMDgiIHk9IjM3MCIgd2lkdGg9Ijk2IiBoZWlnaHQ9IjIwIiByeD0iMTAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjk1Ii8+CiAgPCEtLSBTY2FsZSBwb2xlIC0tPgogIDxyZWN0IHg9IjI0OCIgeT0iMjAwIiB3aWR0aD0iMTYiIGhlaWdodD0iMTcyIiByeD0iOCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOTUiLz4KICA8IS0tIFNjYWxlIGJlYW0gLS0+CiAgPHJlY3QgeD0iMTIwIiB5PSIxOTYiIHdpZHRoPSIyNzIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDwhLS0gTGVmdCBwYW4gLS0+CiAgPGVsbGlwc2UgY3g9IjE2NCIgY3k9IjI3MiIgcng9IjUyIiByeT0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTQiIG9wYWNpdHk9IjAuOTUiLz4KICA8bGluZSB4MT0iMTIwIiB5MT0iMjA0IiB4Mj0iMTQwIiB5Mj0iMjY4IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuODUiLz4KICA8bGluZSB4MT0iMjA4IiB5MT0iMjA0IiB4Mj0iMTg4IiB5Mj0iMjY4IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuODUiLz4KICA8IS0tIFJpZ2h0IHBhbiAtLT4KICA8ZWxsaXBzZSBjeD0iMzQ4IiBjeT0iMjcyIiByeD0iNTIiIHJ5PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxNCIgb3BhY2l0eT0iMC45NSIvPgogIDxsaW5lIHgxPSIzMDQiIHkxPSIyMDQiIHgyPSIzMjQiIHkyPSIyNjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC44NSIvPgogIDxsaW5lIHgxPSIzOTIiIHkxPSIyMDQiIHgyPSIzNzIiIHkyPSIyNjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC44NSIvPgogIDwhLS0gQ2VudGVyIHBpdm90IGRvdCAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyMDAiIHI9IjE2IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDwhLS0gQk1JIHRleHQgbGFiZWwgLS0+CiAgPHRleHQgeD0iMjU2IiB5PSIxNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjUyIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIgbGV0dGVyLXNwYWNpbmc9IjIiPkJNSTwvdGV4dD4KPC9zdmc+Cg==" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
   <title>BMI Calculator</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-
-  <!-- Google Fonts: Support Vietnamese + Material Design aesthetic -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-  <!-- Material Symbols -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
 
   <style>
-    /* ========== DESIGN TOKENS ========== */
+    /* ===== CSS VARIABLES ===== */
     :root {
-      --md-sys-color-primary: #1976D2;
-      --md-sys-color-primary-container: #BBDEFB;
-      --md-sys-color-on-primary: #FFFFFF;
-      --md-sys-color-on-primary-container: #0D47A1;
-      --md-sys-color-secondary: #0288D1;
-      --md-sys-color-surface: #F8FAFE;
-      --md-sys-color-surface-variant: #EEF2F8;
-      --md-sys-color-surface-container: #FFFFFF;
-      --md-sys-color-surface-container-high: #F0F4FB;
-      --md-sys-color-on-surface: #1A1C1E;
-      --md-sys-color-on-surface-variant: #44474E;
-      --md-sys-color-outline: #74777F;
-      --md-sys-color-outline-variant: #C4C7D0;
-      --md-sys-color-error: #B3261E;
+      --font: 'Be Vietnam Pro', sans-serif;
 
-      /* BMI Category Colors */
-      --color-underweight: #0288D1;
-      --color-normal: #388E3C;
-      --color-overweight: #F57C00;
-      --color-obese: #D32F2F;
+      /* Material Design 3 - Light */
+      --md-primary: #1565C0;
+      --md-primary-container: #D6E4FF;
+      --md-on-primary: #FFFFFF;
+      --md-on-primary-container: #001945;
+      --md-secondary: #555F71;
+      --md-secondary-container: #D9E3F8;
+      --md-on-secondary-container: #121C2B;
+      --md-surface: #F8F9FF;
+      --md-surface-variant: #E1E2EC;
+      --md-on-surface: #1A1C2E;
+      --md-on-surface-variant: #44465A;
+      --md-outline: #757789;
+      --md-outline-variant: #C5C6D6;
+      --md-background: #F8F9FF;
+      --md-error: #BA1A1A;
+      --md-error-container: #FFDAD6;
 
-      --md-elevation-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.1);
-      --md-elevation-2: 0 1px 2px rgba(0,0,0,.04), 0 2px 6px rgba(0,0,0,.12);
-      --md-elevation-3: 0 4px 8px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.05);
+      --card-bg: #FFFFFF;
+      --card-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 0 1px rgba(0,0,0,0.06);
+      --card-shadow-raised: 0 8px 24px rgba(21,101,192,0.15), 0 2px 8px rgba(0,0,0,0.08);
+      --input-bg: #F3F4FF;
+      --divider: #E1E2EC;
+      --ripple: rgba(21,101,192,0.12);
+
+      /* BMI Color bands */
+      --bmi-underweight: #2196F3;
+      --bmi-normal: #4CAF50;
+      --bmi-overweight: #FF9800;
+      --bmi-obese1: #F44336;
+      --bmi-obese2: #B71C1C;
+      --bmi-obese3: #4A148C;
 
       --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-
-      --font-display: 'Google Sans', 'Be Vietnam Pro', sans-serif;
-      --font-body: 'Be Vietnam Pro', sans-serif;
-
-      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --transition: 0.25s cubic-bezier(0.2, 0, 0, 1);
     }
 
-    /* ========== DARK THEME ========== */
-    [data-theme="dark"] {
-      --md-sys-color-primary: #90CAF9;
-      --md-sys-color-primary-container: #0D47A1;
-      --md-sys-color-on-primary: #0D47A1;
-      --md-sys-color-on-primary-container: #BBDEFB;
-      --md-sys-color-surface: #111418;
-      --md-sys-color-surface-variant: #1E2228;
-      --md-sys-color-surface-container: #1A1F27;
-      --md-sys-color-surface-container-high: #222830;
-      --md-sys-color-on-surface: #E3E2E6;
-      --md-sys-color-on-surface-variant: #C4C7D0;
-      --md-sys-color-outline: #8E9099;
-      --md-sys-color-outline-variant: #44474E;
-      --md-sys-color-error: #F2B8B5;
+    [data-scheme="dark"] {
+      --md-primary: #AAC7FF;
+      --md-primary-container: #003E8F;
+      --md-on-primary: #00305E;
+      --md-on-primary-container: #D6E4FF;
+      --md-secondary: #BBC6DC;
+      --md-secondary-container: #3D4759;
+      --md-on-secondary-container: #D9E3F8;
+      --md-surface: #1A1C2E;
+      --md-surface-variant: #2D2F42;
+      --md-on-surface: #E2E2F2;
+      --md-on-surface-variant: #C5C6D6;
+      --md-outline: #8F9099;
+      --md-outline-variant: #44465A;
+      --md-background: #121320;
+      --md-error: #FFB4AB;
+      --md-error-container: #93000A;
 
-      --color-underweight: #4FC3F7;
-      --color-normal: #81C784;
-      --color-overweight: #FFB74D;
-      --color-obese: #EF9A9A;
+      --card-bg: #1E2030;
+      --card-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 0 1px rgba(0,0,0,0.3);
+      --card-shadow-raised: 0 8px 24px rgba(0,0,0,0.5);
+      --input-bg: #252740;
+      --divider: #2D2F42;
+      --ripple: rgba(170,199,255,0.12);
     }
 
-    /* ========== RESET & BASE ========== */
+    /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { font-size: 16px; scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
+    }
 
     body {
-      font-family: var(--font-body);
-      background: var(--md-sys-color-surface);
-      color: var(--md-sys-color-on-surface);
-      min-height: 100vh;
+      font-family: var(--font);
+      background: var(--md-background);
+      color: var(--md-on-surface);
+      min-height: 100dvh;
+      line-height: 1.5;
       transition: background var(--transition), color var(--transition);
       -webkit-font-smoothing: antialiased;
     }
 
-    .material-symbols-rounded {
-      font-family: 'Material Symbols Rounded';
-      font-weight: normal;
-      font-style: normal;
-      font-size: 24px;
-      line-height: 1;
-      letter-spacing: normal;
-      text-transform: none;
-      display: inline-block;
-      white-space: nowrap;
-      word-wrap: normal;
-      direction: ltr;
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      user-select: none;
-    }
-
-    /* ========== TOP APP BAR ========== */
-    .top-app-bar {
+    /* ===== APP SHELL ===== */
+    .app-bar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--md-sys-color-surface-container);
-      border-bottom: 1px solid var(--md-sys-color-outline-variant);
-      box-shadow: var(--md-elevation-1);
-      transition: background var(--transition), box-shadow var(--transition);
+      background: var(--md-surface);
+      border-bottom: 1px solid var(--divider);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background var(--transition), border-color var(--transition);
     }
 
-    .top-app-bar-inner {
+    .app-bar-inner {
       max-width: 900px;
       margin: 0 auto;
+      padding: 0 16px;
+      height: 64px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
       gap: 12px;
     }
 
-    .app-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--md-sys-color-primary);
-      color: var(--md-sys-color-on-primary);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 0.5px;
+    .app-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       flex-shrink: 0;
-      transition: background var(--transition);
     }
 
-    .brand-text {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--md-sys-color-on-surface);
-      line-height: 1.2;
+    .app-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--md-primary);
+      letter-spacing: -0.3px;
+      flex: 1;
     }
 
-    .brand-sub {
-      font-size: 11.5px;
-      color: var(--md-sys-color-on-surface-variant);
-      font-weight: 400;
-    }
-
-    .bar-actions {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    /* ========== ICON BUTTON ========== */
+    /* ===== ICON BUTTON ===== */
     .icon-btn {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
       border: none;
       background: transparent;
-      border-radius: 50%;
+      color: var(--md-on-surface-variant);
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      color: var(--md-sys-color-on-surface-variant);
       transition: background var(--transition), color var(--transition);
       position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .icon-btn:hover {
-      background: rgba(0,0,0,0.06);
-    }
+    .icon-btn:hover { background: var(--ripple); color: var(--md-primary); }
+    .icon-btn:active { background: rgba(21,101,192,0.2); }
+    .icon-btn .material-icons-round { font-size: 22px; }
 
-    [data-theme="dark"] .icon-btn:hover {
-      background: rgba(255,255,255,0.08);
-    }
-
-    .icon-btn:active { background: rgba(0,0,0,0.12); }
-
-    /* Tooltip */
-    .icon-btn[title]:hover::after {
-      content: attr(title);
-      position: absolute;
-      bottom: -32px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--md-sys-color-on-surface);
-      color: var(--md-sys-color-surface-container);
-      font-size: 11px;
-      font-family: var(--font-body);
-      white-space: nowrap;
-      padding: 4px 8px;
-      border-radius: 4px;
-      pointer-events: none;
-    }
-
-    /* ========== LANG SELECTOR ========== */
+    /* ===== LANG SWITCHER ===== */
     .lang-pill {
       display: flex;
-      background: var(--md-sys-color-surface-variant);
+      align-items: center;
+      background: var(--md-surface-variant);
       border-radius: 20px;
       padding: 3px;
       gap: 2px;
     }
 
     .lang-btn {
-      border: none;
-      background: transparent;
       padding: 4px 12px;
       border-radius: 16px;
+      border: none;
+      background: transparent;
+      color: var(--md-on-surface-variant);
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 600;
       cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface-variant);
-      transition: background var(--transition), color var(--transition);
+      transition: all var(--transition);
+      letter-spacing: 0.3px;
     }
 
     .lang-btn.active {
-      background: var(--md-sys-color-surface-container);
-      color: var(--md-sys-color-primary);
-      box-shadow: var(--md-elevation-1);
+      background: var(--md-primary);
+      color: var(--md-on-primary);
+      box-shadow: 0 2px 6px rgba(21,101,192,0.3);
     }
 
-    /* ========== MAIN LAYOUT ========== */
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 28px 20px 60px;
+    /* ===== THEME MENU ===== */
+    .theme-menu-wrapper { position: relative; }
+
+    .theme-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--card-bg);
+      border: 1px solid var(--divider);
+      border-radius: var(--radius-md);
+      box-shadow: var(--card-shadow-raised);
+      padding: 6px;
+      min-width: 176px;
+      z-index: 200;
+      opacity: 0;
+      transform: translateY(-8px) scale(0.96);
+      pointer-events: none;
+      transition: opacity var(--transition), transform var(--transition);
+      transform-origin: top right;
     }
 
-    .page-hero {
-      text-align: center;
-      margin-bottom: 32px;
+    .theme-menu.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
     }
 
-    .page-title {
-      font-family: var(--font-display);
-      font-size: 30px;
-      font-weight: 700;
-      color: var(--md-sys-color-on-surface);
-      line-height: 1.25;
-      margin-bottom: 8px;
-    }
-
-    .page-desc {
-      font-size: 15px;
-      color: var(--md-sys-color-on-surface-variant);
-      max-width: 480px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* ========== CARD ========== */
-    .card {
-      background: var(--md-sys-color-surface-container);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--md-elevation-2);
-      border: 1px solid var(--md-sys-color-outline-variant);
-      transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
-    }
-
-    /* ========== UNIT TOGGLE ========== */
-    .unit-toggle-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 24px;
-    }
-
-    .segment-control {
-      display: flex;
-      background: var(--md-sys-color-surface-variant);
-      border-radius: 28px;
-      padding: 4px;
-      gap: 2px;
-      border: 1px solid var(--md-sys-color-outline-variant);
-    }
-
-    .seg-btn {
+    .theme-option {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 12px;
+      width: 100%;
+      padding: 10px 12px;
       border: none;
       background: transparent;
-      padding: 8px 20px;
-      border-radius: 22px;
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 14px;
+      color: var(--md-on-surface);
+      font-family: var(--font);
+      font-size: 0.875rem;
       font-weight: 500;
-      color: var(--md-sys-color-on-surface-variant);
-      transition: all var(--transition);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition);
     }
 
-    .seg-btn.active {
-      background: var(--md-sys-color-surface-container);
-      color: var(--md-sys-color-primary);
-      box-shadow: var(--md-elevation-2);
-    }
+    .theme-option:hover { background: var(--ripple); }
+    .theme-option.selected { color: var(--md-primary); font-weight: 600; }
+    .theme-option .material-icons-round { font-size: 20px; color: var(--md-on-surface-variant); }
+    .theme-option.selected .material-icons-round { color: var(--md-primary); }
 
-    .seg-btn .material-symbols-rounded { font-size: 18px; }
-
-    /* ========== FORM GRID ========== */
-    .form-card { padding: 28px; margin-bottom: 20px; }
-
-    .form-grid {
+    /* ===== MAIN CONTENT ===== */
+    .main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
-    .form-field { display: flex; flex-direction: column; gap: 6px; }
-    .form-field.full { grid-column: 1 / -1; }
+    /* ===== CARD ===== */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--card-shadow);
+      padding: 24px;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
 
-    .field-label {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--md-sys-color-on-surface-variant);
+    .card-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--md-primary);
       text-transform: uppercase;
-      letter-spacing: 0.6px;
+      letter-spacing: 1.2px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 6px;
-    }
-
-    .field-label .material-symbols-rounded { font-size: 16px; }
-
-    .input-group {
-      display: flex;
-      align-items: center;
-      background: var(--md-sys-color-surface-variant);
-      border: 1.5px solid var(--md-sys-color-outline-variant);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
-    }
-
-    .input-group:focus-within {
-      border-color: var(--md-sys-color-primary);
-      box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.12);
-    }
-
-    .input-group input {
-      flex: 1;
-      border: none;
-      background: transparent;
-      padding: 13px 14px;
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface);
-      outline: none;
-      min-width: 0;
-    }
-
-    .input-group input::placeholder { color: var(--md-sys-color-outline); font-weight: 400; }
-
-    .input-unit {
-      padding: 0 14px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--md-sys-color-on-surface-variant);
-      background: var(--md-sys-color-surface-container-high);
-      border-left: 1.5px solid var(--md-sys-color-outline-variant);
-      height: 100%;
-      display: flex;
-      align-items: center;
-      min-width: 44px;
-      justify-content: center;
-    }
-
-    /* Gender radio */
-    .gender-group {
-      display: flex;
-      gap: 10px;
-    }
-
-    .radio-card {
-      flex: 1;
-      position: relative;
-    }
-
-    .radio-card input[type="radio"] {
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .radio-label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      padding: 14px 8px;
-      border-radius: var(--radius-md);
-      border: 1.5px solid var(--md-sys-color-outline-variant);
-      cursor: pointer;
-      font-size: 13.5px;
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface-variant);
-      background: var(--md-sys-color-surface-variant);
-      transition: all var(--transition);
-    }
-
-    .radio-label .material-symbols-rounded { font-size: 26px; }
-
-    .radio-card input:checked + .radio-label {
-      border-color: var(--md-sys-color-primary);
-      background: var(--md-sys-color-primary-container);
-      color: var(--md-sys-color-on-primary-container);
-      box-shadow: 0 0 0 3px rgba(25,118,210,0.1);
-    }
-
-    /* ========== CALCULATE BUTTON ========== */
-    .calc-btn {
-      width: 100%;
-      padding: 16px 24px;
-      border: none;
-      border-radius: var(--radius-md);
-      background: var(--md-sys-color-primary);
-      color: var(--md-sys-color-on-primary);
-      font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       gap: 8px;
-      transition: all var(--transition);
-      margin-top: 4px;
-      box-shadow: var(--md-elevation-2);
     }
 
-    .calc-btn:hover {
-      box-shadow: var(--md-elevation-3);
-      filter: brightness(1.06);
+    .card-title .material-icons-round {
+      font-size: 16px;
+      background: var(--md-primary-container);
+      color: var(--md-on-primary-container);
+      padding: 4px;
+      border-radius: 6px;
     }
 
-    .calc-btn:active { transform: scale(0.98); filter: brightness(0.96); }
-    .calc-btn .material-symbols-rounded { font-size: 20px; }
-
-    /* ========== RESULT SECTION ========== */
-    .result-section {
-      opacity: 0;
-      transform: translateY(16px);
-      pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .result-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .result-card { padding: 28px; }
-
-    .result-header {
+    /* ===== SEGMENT CONTROL (Gender / Unit) ===== */
+    .segment-group {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
       gap: 16px;
       margin-bottom: 24px;
       flex-wrap: wrap;
     }
 
-    .result-label {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--md-sys-color-on-surface-variant);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-bottom: 4px;
+    .segment-label {
+      font-size: 0.8rem;
+      color: var(--md-on-surface-variant);
+      font-weight: 500;
+      margin-bottom: 8px;
     }
 
-    .result-value {
-      font-family: var(--font-display);
-      font-size: 56px;
-      font-weight: 700;
-      line-height: 1;
-      transition: color var(--transition);
-    }
+    .segment-field { flex: 1; min-width: 140px; }
 
-    .result-unit {
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--md-sys-color-on-surface-variant);
-    }
-
-    .result-category-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 24px;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      transition: all var(--transition);
-    }
-
-    .result-category-badge .material-symbols-rounded { font-size: 20px; }
-
-    /* ========== BMI GAUGE ========== */
-    .gauge-wrap {
-      margin-bottom: 24px;
-    }
-
-    .gauge-bar {
-      height: 10px;
-      border-radius: 5px;
-      overflow: hidden;
+    .segment-control {
       display: flex;
-      margin-bottom: 6px;
+      background: var(--input-bg);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      gap: 4px;
+      border: 1.5px solid var(--md-outline-variant);
+      transition: border-color var(--transition), background var(--transition);
     }
 
-    .gauge-segment {
+    .segment-btn {
       flex: 1;
+      padding: 8px 6px;
+      border: none;
+      background: transparent;
+      color: var(--md-on-surface-variant);
+      font-family: var(--font);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .segment-btn .material-icons-round { font-size: 18px; }
+
+    .segment-btn.active {
+      background: var(--md-primary);
+      color: var(--md-on-primary);
+      box-shadow: 0 2px 8px rgba(21,101,192,0.35);
+    }
+
+    /* ===== INPUT FIELDS ===== */
+    .input-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .input-grid { grid-template-columns: 1fr; }
+    }
+
+    .input-field {
       position: relative;
     }
 
-    .gauge-segment:first-child { border-radius: 5px 0 0 5px; }
-    .gauge-segment:last-child { border-radius: 0 5px 5px 0; }
+    .input-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--md-on-surface-variant);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-    .seg-underweight { background: var(--color-underweight); opacity: 0.35; }
-    .seg-normal { background: var(--color-normal); opacity: 0.35; }
-    .seg-overweight { background: var(--color-overweight); opacity: 0.35; }
-    .seg-obese { background: var(--color-obese); opacity: 0.35; }
+    .input-label .material-icons-round {
+      font-size: 15px;
+      color: var(--md-primary);
+    }
 
-    .gauge-segment.active { opacity: 1; }
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-number {
+      width: 100%;
+      padding: 14px 56px 14px 16px;
+      background: var(--input-bg);
+      border: 1.5px solid var(--md-outline-variant);
+      border-radius: var(--radius-md);
+      color: var(--md-on-surface);
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: 600;
+      outline: none;
+      transition: all var(--transition);
+      -moz-appearance: textfield;
+    }
+
+    .input-number::-webkit-outer-spin-button,
+    .input-number::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+    .input-number:focus {
+      border-color: var(--md-primary);
+      background: var(--card-bg);
+      box-shadow: 0 0 0 3px rgba(21,101,192,0.15);
+    }
+
+    .input-unit {
+      position: absolute;
+      right: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--md-outline);
+      background: var(--md-surface-variant);
+      padding: 3px 8px;
+      border-radius: 6px;
+      pointer-events: none;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== SLIDER ===== */
+    .slider-wrapper { margin-top: 16px; }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .slider-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--md-on-surface-variant);
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slider-label .material-icons-round { font-size: 15px; color: var(--md-primary); }
+
+    .slider-value {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--md-primary);
+      min-width: 60px;
+      text-align: right;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--md-outline-variant);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--md-primary);
+      box-shadow: 0 2px 8px rgba(21,101,192,0.4);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 4px 12px rgba(21,101,192,0.5);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--md-primary);
+      border: none;
+      box-shadow: 0 2px 8px rgba(21,101,192,0.4);
+      cursor: pointer;
+    }
+
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+      padding: 0 2px;
+    }
+
+    .slider-tick {
+      font-size: 0.68rem;
+      color: var(--md-outline);
+      font-weight: 500;
+    }
+
+    /* ===== AGE ===== */
+    .age-controls {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: var(--input-bg);
+      border: 1.5px solid var(--md-outline-variant);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+
+    .age-controls:focus-within { border-color: var(--md-primary); }
+
+    .age-stepper {
+      width: 48px;
+      height: 52px;
+      border: none;
+      background: transparent;
+      color: var(--md-primary);
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+      flex-shrink: 0;
+    }
+
+    .age-stepper:hover { background: var(--ripple); }
+    .age-stepper:active { background: rgba(21,101,192,0.2); }
+
+    .age-display {
+      flex: 1;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--md-on-surface);
+      font-family: var(--font);
+      border: none;
+      background: transparent;
+      outline: none;
+      padding: 8px 0;
+      -moz-appearance: textfield;
+    }
+
+    .age-display::-webkit-outer-spin-button,
+    .age-display::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+    /* ===== CALCULATE BUTTON ===== */
+    .calc-btn {
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--md-primary);
+      color: var(--md-on-primary);
+      border: none;
+      border-radius: var(--radius-lg);
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      letter-spacing: 0.3px;
+      transition: all var(--transition);
+      box-shadow: 0 4px 16px rgba(21,101,192,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calc-btn:hover {
+      background: #1976D2;
+      box-shadow: 0 6px 20px rgba(21,101,192,0.5);
+      transform: translateY(-1px);
+    }
+
+    .calc-btn:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(21,101,192,0.3); }
+    .calc-btn .material-icons-round { font-size: 22px; }
+
+    .reset-btn {
+      width: 100%;
+      padding: 13px 24px;
+      background: transparent;
+      color: var(--md-on-surface-variant);
+      border: 1.5px solid var(--md-outline-variant);
+      border-radius: var(--radius-lg);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all var(--transition);
+    }
+
+    .reset-btn:hover { border-color: var(--md-primary); color: var(--md-primary); background: var(--ripple); }
+    .reset-btn .material-icons-round { font-size: 18px; }
+
+    .btn-row { display: flex; gap: 12px; }
+    .btn-row .calc-btn { flex: 2; }
+    .btn-row .reset-btn { flex: 1; }
+
+    /* ===== RESULT CARD ===== */
+    .result-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--card-shadow);
+      padding: 28px 24px;
+      transition: all var(--transition);
+      display: none;
+    }
+
+    .result-card.show {
+      display: block;
+      animation: slideUp 0.4s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .bmi-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background var(--transition);
+    }
+
+    .bmi-value-big {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1;
+    }
+
+    .bmi-label-small {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      margin-top: 2px;
+    }
+
+    .result-text { flex: 1; }
+
+    .result-category {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .result-desc {
+      font-size: 0.85rem;
+      color: var(--md-on-surface-variant);
+      line-height: 1.5;
+    }
+
+    /* ===== BMI GAUGE ===== */
+    .bmi-gauge { margin-bottom: 24px; }
+
+    .gauge-track {
+      height: 10px;
+      border-radius: 5px;
+      background: linear-gradient(90deg,
+        #2196F3 0%, #2196F3 18.5%,
+        #4CAF50 18.5%, #4CAF50 45%,
+        #FF9800 45%, #FF9800 65%,
+        #F44336 65%, #F44336 82.5%,
+        #B71C1C 82.5%, #B71C1C 93%,
+        #4A148C 93%, #4A148C 100%
+      );
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .gauge-thumb {
+      position: absolute;
+      top: 50%;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border: 3px solid var(--result-color, #4CAF50);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      transition: left 0.6s cubic-bezier(0.2, 0, 0, 1), border-color var(--transition);
+    }
 
     .gauge-labels {
       display: flex;
       justify-content: space-between;
-    }
-
-    .gauge-label-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .gauge-label-text {
-      font-size: 10.5px;
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface-variant);
-    }
-
-    .gauge-label-range {
-      font-size: 10px;
-      color: var(--md-sys-color-outline);
-    }
-
-    /* ========== TIPS ========== */
-    .tips-title {
-      font-size: 13px;
+      font-size: 0.65rem;
+      color: var(--md-outline);
       font-weight: 600;
-      color: var(--md-sys-color-on-surface-variant);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
-    .tips-title .material-symbols-rounded { font-size: 16px; }
-
-    .tips-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .tip-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 12px 14px;
-      background: var(--md-sys-color-surface-container-high);
-      border-radius: var(--radius-md);
-      border-left: 3px solid currentColor;
-      font-size: 14px;
-      line-height: 1.55;
-      color: var(--md-sys-color-on-surface);
-    }
-
-    .tip-item .material-symbols-rounded { font-size: 18px; margin-top: 1px; flex-shrink: 0; }
-
-    /* ========== BMI TABLE ========== */
-    .bmi-table-section {
-      margin-top: 20px;
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--md-sys-color-on-surface);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .section-title .material-symbols-rounded { font-size: 20px; color: var(--md-sys-color-primary); }
-
-    .bmi-table {
+    /* ===== BMI CATEGORIES TABLE ===== */
+    .categories-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
+      font-size: 0.82rem;
     }
 
-    .bmi-table thead tr {
-      background: var(--md-sys-color-surface-container-high);
-    }
-
-    .bmi-table th {
-      padding: 11px 14px;
+    .categories-table th {
       text-align: left;
+      color: var(--md-on-surface-variant);
       font-weight: 600;
-      font-size: 12px;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--md-sys-color-on-surface-variant);
+      letter-spacing: 0.8px;
+      padding: 0 8px 10px 8px;
     }
 
-    .bmi-table td {
-      padding: 11px 14px;
-      border-top: 1px solid var(--md-sys-color-outline-variant);
-      color: var(--md-sys-color-on-surface);
+    .categories-table td {
+      padding: 9px 8px;
+      color: var(--md-on-surface);
+      font-weight: 500;
     }
 
-    .bmi-table tr:hover td { background: var(--md-sys-color-surface-container-high); }
+    .categories-table tr { border-radius: var(--radius-sm); }
 
-    .bmi-table tr.highlight td {
-      font-weight: 600;
+    .categories-table tbody tr.highlighted {
+      background: var(--md-primary-container);
+      border-radius: var(--radius-sm);
     }
+
+    .categories-table tbody tr.highlighted td { color: var(--md-on-primary-container); font-weight: 700; }
 
     .cat-dot {
-      display: inline-block;
       width: 10px;
       height: 10px;
       border-radius: 50%;
+      display: inline-block;
       margin-right: 8px;
       vertical-align: middle;
     }
 
-    /* ========== SNACKBAR (Toast) ========== */
-    .snackbar {
+    /* ===== HEALTHY WEIGHT BOX ===== */
+    .healthy-box {
+      background: var(--md-secondary-container);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .healthy-box .material-icons-round {
+      font-size: 28px;
+      color: var(--md-primary);
+      flex-shrink: 0;
+    }
+
+    .healthy-box-text { flex: 1; }
+
+    .healthy-box-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--md-on-secondary-container);
+      margin-bottom: 2px;
+    }
+
+    .healthy-box-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--md-primary);
+    }
+
+    /* ===== INFO SECTION ===== */
+    .info-section {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      transition: background var(--transition);
+    }
+
+    .accordion-item { border-bottom: 1px solid var(--divider); }
+    .accordion-item:last-child { border-bottom: none; }
+
+    .accordion-header {
+      width: 100%;
+      padding: 18px 24px;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background var(--transition);
+    }
+
+    .accordion-header:hover { background: var(--ripple); }
+
+    .accordion-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--md-primary-container);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .accordion-icon .material-icons-round {
+      font-size: 18px;
+      color: var(--md-on-primary-container);
+    }
+
+    .accordion-title {
+      flex: 1;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--md-on-surface);
+    }
+
+    .accordion-chevron {
+      font-size: 20px;
+      color: var(--md-outline);
+      transition: transform var(--transition);
+    }
+
+    .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .accordion-item.open .accordion-body { max-height: 600px; }
+
+    .accordion-content {
+      padding: 0 24px 20px 24px;
+      color: var(--md-on-surface-variant);
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+
+    .accordion-content p + p { margin-top: 10px; }
+
+    /* ===== TOAST ===== */
+    .toast {
       position: fixed;
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(80px);
-      background: var(--md-sys-color-on-surface);
-      color: var(--md-sys-color-surface-container);
+      background: var(--md-on-surface);
+      color: var(--md-surface);
       padding: 12px 20px;
-      border-radius: var(--radius-md);
-      font-size: 14px;
+      border-radius: 24px;
+      font-size: 0.875rem;
       font-weight: 500;
-      box-shadow: var(--md-elevation-3);
-      z-index: 999;
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
       white-space: nowrap;
+      z-index: 9999;
+      transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     }
 
-    .snackbar.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast .material-icons-round { font-size: 18px; color: #69F0AE; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 16px;
+      color: var(--md-outline);
+      font-size: 0.78rem;
     }
 
-    /* ========== ERROR ========== */
-    .field-error {
-      font-size: 12px;
-      color: var(--md-sys-color-error);
+    /* ===== PWA INSTALL BANNER ===== */
+    .install-banner {
+      background: var(--md-primary-container);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 0;
       display: none;
-      align-items: center;
-      gap: 4px;
     }
 
-    .field-error.show { display: flex; }
-    .field-error .material-symbols-rounded { font-size: 14px; }
+    .install-banner.show { display: flex; animation: slideUp 0.4s; }
 
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 600px) {
-      .form-grid { grid-template-columns: 1fr; }
-      .form-field.full { grid-column: 1; }
-      .page-title { font-size: 24px; }
-      .result-value { font-size: 44px; }
-      .form-card, .result-card { padding: 20px; }
+    .install-banner .material-icons-round {
+      font-size: 28px;
+      color: var(--md-primary);
+      flex-shrink: 0;
     }
 
-    /* ========== THEME MENU ========== */
-    .theme-menu-wrap { position: relative; }
+    .install-banner-text { flex: 1; }
 
-    .theme-menu {
-      position: absolute;
-      top: calc(100% + 6px);
-      right: 0;
-      background: var(--md-sys-color-surface-container);
-      border: 1px solid var(--md-sys-color-outline-variant);
-      border-radius: var(--radius-md);
-      box-shadow: var(--md-elevation-3);
-      z-index: 200;
-      overflow: hidden;
-      opacity: 0;
-      transform: scale(0.95) translateY(-8px);
-      pointer-events: none;
-      transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
-      min-width: 160px;
+    .install-banner-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--md-on-primary-container);
     }
 
-    .theme-menu.open {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-      pointer-events: auto;
+    .install-banner-sub {
+      font-size: 0.775rem;
+      color: var(--md-on-surface-variant);
+      margin-top: 2px;
     }
 
-    .theme-opt {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 16px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface);
-      transition: background var(--transition);
+    .install-banner-btn {
+      padding: 8px 16px;
+      background: var(--md-primary);
+      color: var(--md-on-primary);
       border: none;
-      background: transparent;
-      width: 100%;
-      font-family: var(--font-body);
+      border-radius: var(--radius-md);
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .theme-opt:hover { background: var(--md-sys-color-surface-variant); }
-    .theme-opt.selected { color: var(--md-sys-color-primary); }
-    .theme-opt .material-symbols-rounded { font-size: 18px; }
-
-    .divider { height: 1px; background: var(--md-sys-color-outline-variant); }
-
-    /* Reset button */
-    .reset-btn {
+    .install-banner-close {
+      background: none;
+      border: none;
+      color: var(--md-outline);
+      cursor: pointer;
       display: flex;
+      align-items: center;
+      padding: 4px;
+      border-radius: 50%;
+      transition: background var(--transition);
+    }
+
+    .install-banner-close:hover { background: var(--ripple); }
+    .install-banner-close .material-icons-round { font-size: 18px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 640px) {
+      .main { padding: 28px 24px 64px; gap: 24px; }
+      .card { padding: 28px 32px; }
+      .result-card { padding: 32px; }
+    }
+
+    @media (min-width: 900px) {
+      .main { padding: 32px 32px 64px; }
+      .card { padding: 32px 36px; }
+    }
+
+    @media (max-width: 360px) {
+      .app-title { font-size: 1.1rem; }
+      .card { padding: 18px 14px; }
+      .bmi-circle { width: 78px; height: 78px; }
+      .bmi-value-big { font-size: 1.5rem; }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--md-outline-variant); border-radius: 3px; }
+
+    /* ===== SELECTION ===== */
+    ::selection { background: rgba(21,101,192,0.2); color: var(--md-on-surface); }
+
+    /* Number badge for result status */
+    .status-badge {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      border: none;
-      background: transparent;
-      color: var(--md-sys-color-on-surface-variant);
-      font-family: var(--font-body);
-      font-size: 13.5px;
-      font-weight: 500;
-      cursor: pointer;
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
-      transition: background var(--transition), color var(--transition);
-      margin-top: 10px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 6px;
     }
 
-    .reset-btn:hover { background: var(--md-sys-color-surface-variant); color: var(--md-sys-color-on-surface); }
-    .reset-btn .material-symbols-rounded { font-size: 16px; }
+    .status-badge .material-icons-round { font-size: 14px; }
+
+    .divider-line {
+      height: 1px;
+      background: var(--divider);
+      margin: 20px 0;
+      transition: background var(--transition);
+    }
+
+    /* Safe area padding for iOS */
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      .main { padding-bottom: calc(48px + env(safe-area-inset-bottom)); }
+    }
   </style>
 </head>
 <body>
 
-<!-- TOP APP BAR -->
-<header class="top-app-bar">
-  <div class="top-app-bar-inner">
-    <div class="app-brand">
-      <div class="brand-icon">BMI</div>
-      <div>
-        <div class="brand-text" data-i18n="appName">BMI Calculator</div>
-        <div class="brand-sub" data-i18n="appSub">Body Mass Index</div>
-      </div>
+<!-- APP BAR -->
+<header class="app-bar">
+  <div class="app-bar-inner">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMUU5MEZGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNTVDQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2hpbmUiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSI2MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBPbmUgVUkgOCByb3VuZGVkIHNxdWFyZSBiYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTIwIiBmaWxsPSJ1cmwoI2JnKSIvPgogIDwhLS0gU2hpbmUgb3ZlcmxheSAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEyMCIgZmlsbD0idXJsKCNzaGluZSkiLz4KICA8IS0tIFNjYWxlL2JhbGFuY2UgaWNvbiByZXByZXNlbnRpbmcgQk1JIC0tPgogIDwhLS0gU2NhbGUgYmFzZSAtLT4KICA8cmVjdCB4PSIyMDgiIHk9IjM3MCIgd2lkdGg9Ijk2IiBoZWlnaHQ9IjIwIiByeD0iMTAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjk1Ii8+CiAgPCEtLSBTY2FsZSBwb2xlIC0tPgogIDxyZWN0IHg9IjI0OCIgeT0iMjAwIiB3aWR0aD0iMTYiIGhlaWdodD0iMTcyIiByeD0iOCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOTUiLz4KICA8IS0tIFNjYWxlIGJlYW0gLS0+CiAgPHJlY3QgeD0iMTIwIiB5PSIxOTYiIHdpZHRoPSIyNzIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDwhLS0gTGVmdCBwYW4gLS0+CiAgPGVsbGlwc2UgY3g9IjE2NCIgY3k9IjI3MiIgcng9IjUyIiByeT0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTQiIG9wYWNpdHk9IjAuOTUiLz4KICA8bGluZSB4MT0iMTIwIiB5MT0iMjA0IiB4Mj0iMTQwIiB5Mj0iMjY4IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuODUiLz4KICA8bGluZSB4MT0iMjA4IiB5MT0iMjA0IiB4Mj0iMTg4IiB5Mj0iMjY4IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuODUiLz4KICA8IS0tIFJpZ2h0IHBhbiAtLT4KICA8ZWxsaXBzZSBjeD0iMzQ4IiBjeT0iMjcyIiByeD0iNTIiIHJ5PSIxMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxNCIgb3BhY2l0eT0iMC45NSIvPgogIDxsaW5lIHgxPSIzMDQiIHkxPSIyMDQiIHgyPSIzMjQiIHkyPSIyNjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC44NSIvPgogIDxsaW5lIHgxPSIzOTIiIHkxPSIyMDQiIHgyPSIzNzIiIHkyPSIyNjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC44NSIvPgogIDwhLS0gQ2VudGVyIHBpdm90IGRvdCAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyMDAiIHI9IjE2IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogIDwhLS0gQk1JIHRleHQgbGFiZWwgLS0+CiAgPHRleHQgeD0iMjU2IiB5PSIxNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjUyIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIgbGV0dGVyLXNwYWNpbmc9IjIiPkJNSTwvdGV4dD4KPC9zdmc+Cg==" alt="BMI" class="app-logo" />
+    <span class="app-title" id="appTitle">BMI Calculator</span>
+    <div class="lang-pill">
+      <button class="lang-btn" id="langVI" onclick="setLang('vi')">VI</button>
+      <button class="lang-btn" id="langEN" onclick="setLang('en')">EN</button>
     </div>
-    <div class="bar-actions">
-      <!-- Language Toggle -->
-      <div class="lang-pill">
-        <button class="lang-btn active" data-lang="vi" onclick="setLang('vi')">VI</button>
-        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-      </div>
-      <!-- Theme Toggle -->
-      <div class="theme-menu-wrap">
-        <button class="icon-btn" id="themeBtn" onclick="toggleThemeMenu()" aria-label="Theme">
-          <span class="material-symbols-rounded" id="themeIcon">light_mode</span>
+    <div class="theme-menu-wrapper">
+      <button class="icon-btn" id="themeToggleBtn" onclick="toggleThemeMenu()" aria-label="Theme">
+        <span class="material-icons-round" id="themeIcon">brightness_auto</span>
+      </button>
+      <div class="theme-menu" id="themeMenu">
+        <button class="theme-option" onclick="setTheme('light')" data-theme-opt="light">
+          <span class="material-icons-round">light_mode</span>
+          <span data-i18n="themeLight">Sáng</span>
         </button>
-        <div class="theme-menu" id="themeMenu">
-          <button class="theme-opt" data-theme-val="light" onclick="setTheme('light')">
-            <span class="material-symbols-rounded">light_mode</span>
-            <span data-i18n="themeLight">Sáng</span>
-          </button>
-          <button class="theme-opt" data-theme-val="dark" onclick="setTheme('dark')">
-            <span class="material-symbols-rounded">dark_mode</span>
-            <span data-i18n="themeDark">Tối</span>
-          </button>
-          <div class="divider"></div>
-          <button class="theme-opt" data-theme-val="system" onclick="setTheme('system')">
-            <span class="material-symbols-rounded">brightness_auto</span>
-            <span data-i18n="themeSystem">Hệ thống</span>
-          </button>
-        </div>
+        <button class="theme-option" onclick="setTheme('dark')" data-theme-opt="dark">
+          <span class="material-icons-round">dark_mode</span>
+          <span data-i18n="themeDark">Tối</span>
+        </button>
+        <button class="theme-option" onclick="setTheme('system')" data-theme-opt="system">
+          <span class="material-icons-round">brightness_auto</span>
+          <span data-i18n="themeSystem">Hệ thống</span>
+        </button>
       </div>
     </div>
   </div>
 </header>
 
 <!-- MAIN -->
-<main>
-  <div class="page-hero">
-    <h1 class="page-title" data-i18n="heroTitle">Tính chỉ số BMI của bạn</h1>
-    <p class="page-desc" data-i18n="heroDesc">Nhập thông tin để tính chỉ số khối cơ thể và nhận gợi ý sức khoẻ phù hợp.</p>
+<main class="main">
+
+  <!-- PWA Install Banner -->
+  <div class="install-banner" id="installBanner">
+    <span class="material-icons-round">install_mobile</span>
+    <div class="install-banner-text">
+      <div class="install-banner-title" data-i18n="installTitle">Cài đặt ứng dụng</div>
+      <div class="install-banner-sub" data-i18n="installSub">Sử dụng BMI Calculator như một ứng dụng native</div>
+    </div>
+    <button class="install-banner-btn" id="installBtn" data-i18n="installBtn">Cài đặt</button>
+    <button class="install-banner-close" onclick="dismissInstall()">
+      <span class="material-icons-round">close</span>
+    </button>
   </div>
 
-  <!-- Unit Toggle -->
-  <div class="unit-toggle-wrap">
-    <div class="segment-control">
-      <button class="seg-btn active" data-unit="metric" onclick="setUnit('metric')">
-        <span class="material-symbols-rounded">straighten</span>
-        <span data-i18n="unitMetric">Hệ mét (kg, cm)</span>
-      </button>
-      <button class="seg-btn" data-unit="imperial" onclick="setUnit('imperial')">
-        <span class="material-symbols-rounded">square_foot</span>
-        <span data-i18n="unitImperial">Hệ Anh (lb, ft)</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Form Card -->
-  <div class="card form-card">
-    <div class="form-grid">
-      <!-- Gender -->
-      <div class="form-field full">
-        <div class="field-label">
-          <span class="material-symbols-rounded">person</span>
-          <span data-i18n="labelGender">Giới tính</span>
-        </div>
-        <div class="gender-group">
-          <label class="radio-card">
-            <input type="radio" name="gender" value="male" checked />
-            <span class="radio-label">
-              <span class="material-symbols-rounded">man</span>
-              <span data-i18n="genderMale">Nam</span>
-            </span>
-          </label>
-          <label class="radio-card">
-            <input type="radio" name="gender" value="female" />
-            <span class="radio-label">
-              <span class="material-symbols-rounded">woman</span>
-              <span data-i18n="genderFemale">Nữ</span>
-            </span>
-          </label>
-        </div>
-      </div>
-
-      <!-- Age -->
-      <div class="form-field">
-        <div class="field-label">
-          <span class="material-symbols-rounded">cake</span>
-          <span data-i18n="labelAge">Tuổi</span>
-        </div>
-        <div class="input-group">
-          <input type="number" id="ageInput" min="1" max="120" placeholder="25" />
-          <div class="input-unit" data-i18n="unitAge">tuổi</div>
-        </div>
-        <span class="field-error" id="ageError">
-          <span class="material-symbols-rounded">error</span>
-          <span data-i18n="errAge">Tuổi không hợp lệ (1–120)</span>
-        </span>
-      </div>
-
-      <!-- Weight -->
-      <div class="form-field">
-        <div class="field-label">
-          <span class="material-symbols-rounded">monitor_weight</span>
-          <span data-i18n="labelWeight">Cân nặng</span>
-        </div>
-        <div class="input-group">
-          <input type="number" id="weightInput" min="1" placeholder="65" step="0.1" />
-          <div class="input-unit" id="weightUnit">kg</div>
-        </div>
-        <span class="field-error" id="weightError">
-          <span class="material-symbols-rounded">error</span>
-          <span data-i18n="errWeight">Cân nặng không hợp lệ</span>
-        </span>
-      </div>
-
-      <!-- Height metric -->
-      <div class="form-field" id="heightMetricField">
-        <div class="field-label">
-          <span class="material-symbols-rounded">height</span>
-          <span data-i18n="labelHeight">Chiều cao</span>
-        </div>
-        <div class="input-group">
-          <input type="number" id="heightCmInput" min="1" placeholder="170" step="0.1" />
-          <div class="input-unit">cm</div>
-        </div>
-        <span class="field-error" id="heightError">
-          <span class="material-symbols-rounded">error</span>
-          <span data-i18n="errHeight">Chiều cao không hợp lệ</span>
-        </span>
-      </div>
-
-      <!-- Height imperial -->
-      <div class="form-field" id="heightImperialField" style="display:none">
-        <div class="field-label">
-          <span class="material-symbols-rounded">height</span>
-          <span data-i18n="labelHeight">Chiều cao</span>
-        </div>
-        <div style="display:flex;gap:10px">
-          <div class="input-group" style="flex:1">
-            <input type="number" id="heightFtInput" min="0" placeholder="5" />
-            <div class="input-unit">ft</div>
-          </div>
-          <div class="input-group" style="flex:1">
-            <input type="number" id="heightInInput" min="0" max="11" placeholder="7" />
-            <div class="input-unit">in</div>
-          </div>
-        </div>
-        <span class="field-error" id="heightImpError">
-          <span class="material-symbols-rounded">error</span>
-          <span data-i18n="errHeight">Chiều cao không hợp lệ</span>
-        </span>
-      </div>
+  <!-- INPUT CARD -->
+  <section class="card">
+    <div class="card-title">
+      <span class="material-icons-round">edit</span>
+      <span data-i18n="inputTitle">Thông tin của bạn</span>
     </div>
 
-    <div style="margin-top:20px">
-      <button class="calc-btn" onclick="calculate()">
-        <span class="material-symbols-rounded">calculate</span>
-        <span data-i18n="btnCalc">Tính BMI</span>
-      </button>
-      <div style="display:flex;justify-content:center">
-        <button class="reset-btn" onclick="resetForm()">
-          <span class="material-symbols-rounded">restart_alt</span>
-          <span data-i18n="btnReset">Đặt lại</span>
+    <!-- Gender -->
+    <div class="segment-field" style="margin-bottom:24px;">
+      <div class="segment-label" data-i18n="gender">Giới tính</div>
+      <div class="segment-control">
+        <button class="segment-btn active" id="genderMale" onclick="setGender('male')">
+          <span class="material-icons-round">male</span>
+          <span data-i18n="male">Nam</span>
+        </button>
+        <button class="segment-btn" id="genderFemale" onclick="setGender('female')">
+          <span class="material-icons-round">female</span>
+          <span data-i18n="female">Nữ</span>
         </button>
       </div>
     </div>
-  </div>
 
-  <!-- RESULT SECTION -->
-  <div class="result-section" id="resultSection">
-    <div class="card result-card">
-      <div class="result-header">
-        <div>
-          <div class="result-label" data-i18n="yourBmi">Chỉ số BMI của bạn</div>
-          <div class="result-value" id="bmiValue">--<span class="result-unit"> kg/m²</span></div>
-        </div>
-        <div id="categoryBadge" class="result-category-badge">
-          <span class="material-symbols-rounded">info</span>
-          <span id="categoryName">--</span>
-        </div>
-      </div>
-
-      <!-- Gauge -->
-      <div class="gauge-wrap">
-        <div class="gauge-bar">
-          <div class="gauge-segment seg-underweight" id="seg0"></div>
-          <div class="gauge-segment seg-normal" id="seg1"></div>
-          <div class="gauge-segment seg-overweight" id="seg2"></div>
-          <div class="gauge-segment seg-obese" id="seg3"></div>
-        </div>
-        <div class="gauge-labels">
-          <div class="gauge-label-item">
-            <span class="gauge-label-text" data-i18n="catUnder">Thiếu cân</span>
-            <span class="gauge-label-range">&lt; 18.5</span>
-          </div>
-          <div class="gauge-label-item">
-            <span class="gauge-label-text" data-i18n="catNormal">Bình thường</span>
-            <span class="gauge-label-range">18.5–24.9</span>
-          </div>
-          <div class="gauge-label-item">
-            <span class="gauge-label-text" data-i18n="catOver">Thừa cân</span>
-            <span class="gauge-label-range">25–29.9</span>
-          </div>
-          <div class="gauge-label-item">
-            <span class="gauge-label-text" data-i18n="catObese">Béo phì</span>
-            <span class="gauge-label-range">&ge; 30</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tips -->
-      <div>
-        <div class="tips-title">
-          <span class="material-symbols-rounded">tips_and_updates</span>
-          <span data-i18n="tipsTitle">Gợi ý sức khoẻ</span>
-        </div>
-        <div class="tips-list" id="tipsList"></div>
+    <!-- Units -->
+    <div class="segment-field" style="margin-bottom:24px;">
+      <div class="segment-label" data-i18n="unitSystem">Hệ đơn vị</div>
+      <div class="segment-control">
+        <button class="segment-btn active" id="unitMetric" onclick="setUnit('metric')">
+          <span class="material-icons-round">straighten</span>
+          <span data-i18n="metric">Hệ mét (cm, kg)</span>
+        </button>
+        <button class="segment-btn" id="unitImperial" onclick="setUnit('imperial')">
+          <span class="material-icons-round">square_foot</span>
+          <span data-i18n="imperial">Hệ Anh (in, lb)</span>
+        </button>
       </div>
     </div>
 
-    <!-- BMI Reference Table -->
-    <div class="bmi-table-section">
-      <div class="card" style="padding:24px">
-        <div class="section-title">
-          <span class="material-symbols-rounded">table_chart</span>
-          <span data-i18n="tableTitle">Bảng phân loại BMI (WHO)</span>
+    <!-- Height Slider -->
+    <div class="slider-wrapper" id="heightSliderWrap">
+      <div class="slider-row">
+        <div class="slider-label">
+          <span class="material-icons-round">height</span>
+          <span data-i18n="height">Chiều cao</span>
         </div>
-        <table class="bmi-table">
-          <thead>
-            <tr>
-              <th data-i18n="colCat">Phân loại</th>
-              <th data-i18n="colBmi">BMI (kg/m²)</th>
-              <th data-i18n="colStatus">Trạng thái</th>
-            </tr>
-          </thead>
-          <tbody id="bmiTableBody"></tbody>
-        </table>
+        <div class="slider-value" id="heightDisplay">170 cm</div>
+      </div>
+      <input type="range" id="heightSlider" min="50" max="250" value="170" step="1"
+        oninput="onHeightSlider()" />
+      <div class="slider-ticks">
+        <span class="slider-tick" id="htTick1">50 cm</span>
+        <span class="slider-tick" id="htTick2">100 cm</span>
+        <span class="slider-tick" id="htTick3">150 cm</span>
+        <span class="slider-tick" id="htTick4">200 cm</span>
+        <span class="slider-tick" id="htTick5">250 cm</span>
       </div>
     </div>
+
+    <div class="divider-line"></div>
+
+    <!-- Weight + Age -->
+    <div class="input-grid">
+      <div class="input-field">
+        <div class="input-label">
+          <span class="material-icons-round">monitor_weight</span>
+          <span data-i18n="weight">Cân nặng</span>
+        </div>
+        <div class="input-wrapper">
+          <input type="number" class="input-number" id="weightInput"
+            min="1" max="500" value="65" step="0.1"
+            oninput="onWeightInput()" />
+          <span class="input-unit" id="weightUnit">kg</span>
+        </div>
+      </div>
+      <div class="input-field">
+        <div class="input-label">
+          <span class="material-icons-round">cake</span>
+          <span data-i18n="age">Tuổi</span>
+        </div>
+        <div class="age-controls">
+          <button class="age-stepper" onclick="stepAge(-1)" aria-label="Giảm tuổi">
+            <span class="material-icons-round">remove</span>
+          </button>
+          <input type="number" class="age-display" id="ageInput"
+            min="2" max="120" value="25"
+            oninput="onAgeInput()" />
+          <button class="age-stepper" onclick="stepAge(1)" aria-label="Tăng tuổi">
+            <span class="material-icons-round">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;">
+      <div class="btn-row">
+        <button class="calc-btn" onclick="calculate()">
+          <span class="material-icons-round">calculate</span>
+          <span data-i18n="calculate">Tính BMI</span>
+        </button>
+        <button class="reset-btn" onclick="resetAll()">
+          <span class="material-icons-round">refresh</span>
+          <span data-i18n="reset">Đặt lại</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT CARD -->
+  <div class="result-card" id="resultCard">
+    <div class="card-title">
+      <span class="material-icons-round">insights</span>
+      <span data-i18n="resultTitle">Kết quả</span>
+    </div>
+
+    <div class="result-header">
+      <div class="bmi-circle" id="bmiCircle">
+        <span class="bmi-value-big" id="bmiValueBig">--</span>
+        <span class="bmi-label-small">BMI</span>
+      </div>
+      <div class="result-text">
+        <div class="result-category" id="resultCategory"></div>
+        <div class="result-desc" id="resultDesc"></div>
+        <div class="status-badge" id="statusBadge"></div>
+      </div>
+    </div>
+
+    <!-- Gauge -->
+    <div class="bmi-gauge">
+      <div class="gauge-track">
+        <div class="gauge-thumb" id="gaugeThumb"></div>
+      </div>
+      <div class="gauge-labels">
+        <span>18.5</span>
+        <span>25</span>
+        <span>30</span>
+        <span>35</span>
+        <span>40</span>
+      </div>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <!-- Healthy weight -->
+    <div class="healthy-box">
+      <span class="material-icons-round">favorite</span>
+      <div class="healthy-box-text">
+        <div class="healthy-box-title" data-i18n="healthyRange">Cân nặng lý tưởng</div>
+        <div class="healthy-box-value" id="healthyRange">—</div>
+      </div>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <!-- Categories table -->
+    <table class="categories-table">
+      <thead>
+        <tr>
+          <th data-i18n="catLabel">Phân loại</th>
+          <th>BMI</th>
+          <th data-i18n="catStatus">Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody id="catTableBody">
+      </tbody>
+    </table>
   </div>
+
+  <!-- INFO ACCORDION -->
+  <section class="info-section">
+    <div class="accordion-item" id="acc1">
+      <button class="accordion-header" onclick="toggleAccordion('acc1')">
+        <div class="accordion-icon"><span class="material-icons-round">info</span></div>
+        <span class="accordion-title" data-i18n="whatIsBmi">BMI là gì?</span>
+        <span class="material-icons-round accordion-chevron">expand_more</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-content" data-i18n-html="whatIsBmiContent">
+          <p>BMI (Body Mass Index) hay Chỉ số khối cơ thể là đơn vị đo lường được tính bằng cách chia cân nặng (kg) cho bình phương chiều cao (m²). Đây là chỉ số được Tổ chức Y tế Thế giới (WHO) sử dụng để đánh giá mức độ gầy hay béo của một người.</p>
+          <p>Công thức: <strong>BMI = Cân nặng (kg) ÷ [Chiều cao (m)]²</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item" id="acc2">
+      <button class="accordion-header" onclick="toggleAccordion('acc2')">
+        <div class="accordion-icon"><span class="material-icons-round">warning_amber</span></div>
+        <span class="accordion-title" data-i18n="bmiLimits">Giới hạn của BMI</span>
+        <span class="material-icons-round accordion-chevron">expand_more</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-content" data-i18n-html="bmiLimitsContent">
+          <p>BMI không phân biệt được giữa khối cơ và mỡ, nên có thể không chính xác với vận động viên hoặc người có khối cơ cao.</p>
+          <p>BMI không tính đến phân bố mỡ cơ thể, tuổi tác, giới tính, chủng tộc. Đây chỉ là chỉ số tham khảo, không thay thế được chẩn đoán y tế chuyên nghiệp.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item" id="acc3">
+      <button class="accordion-header" onclick="toggleAccordion('acc3')">
+        <div class="accordion-icon"><span class="material-icons-round">tips_and_updates</span></div>
+        <span class="accordion-title" data-i18n="tips">Lời khuyên sức khoẻ</span>
+        <span class="material-icons-round accordion-chevron">expand_more</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-content" data-i18n-html="tipsContent">
+          <p>Duy trì cân nặng trong phạm vi BMI bình thường (18.5 - 24.9) bằng chế độ ăn cân bằng và vận động thường xuyên ít nhất 150 phút mỗi tuần.</p>
+          <p>Nếu BMI ngoài phạm vi bình thường, hãy tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng để được tư vấn phù hợp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<!-- Snackbar -->
-<div class="snackbar" id="snackbar"></div>
+<footer>
+  <span data-i18n="footerNote">BMI chỉ mang tính chất tham khảo, không thay thế tư vấn y tế.</span>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="material-icons-round">check_circle</span>
+  <span id="toastMsg"></span>
+</div>
 
 <script>
-// ========== I18N STRINGS ==========
-const STRINGS = {
+// ===== STATE =====
+const state = {
+  lang: 'vi',
+  theme: 'system',
+  gender: 'male',
+  unit: 'metric',
+  height: 170,
+  weight: 65,
+  age: 25,
+};
+
+// ===== I18N =====
+const i18n = {
   vi: {
-    appName: "BMI Calculator",
-    appSub: "Chỉ số khối cơ thể",
-    heroTitle: "Tính chỉ số BMI của bạn",
-    heroDesc: "Nhập thông tin để tính chỉ số khối cơ thể và nhận gợi ý sức khoẻ phù hợp.",
-    unitMetric: "Hệ mét (kg, cm)",
-    unitImperial: "Hệ Anh (lb, ft)",
-    labelGender: "Giới tính",
-    genderMale: "Nam",
-    genderFemale: "Nữ",
-    labelAge: "Tuổi",
-    unitAge: "tuổi",
-    labelWeight: "Cân nặng",
-    labelHeight: "Chiều cao",
-    btnCalc: "Tính BMI",
-    btnReset: "Đặt lại",
-    yourBmi: "Chỉ số BMI của bạn",
-    catUnder: "Thiếu cân",
-    catNormal: "Bình thường",
-    catOver: "Thừa cân",
-    catObese: "Béo phì",
-    tipsTitle: "Gợi ý sức khoẻ",
-    tableTitle: "Bảng phân loại BMI (WHO)",
-    colCat: "Phân loại",
-    colBmi: "BMI (kg/m²)",
-    colStatus: "Trạng thái",
-    errAge: "Tuổi không hợp lệ (1–120)",
-    errWeight: "Cân nặng không hợp lệ",
-    errHeight: "Chiều cao không hợp lệ",
-    themeLight: "Sáng",
-    themeDark: "Tối",
-    themeSystem: "Hệ thống",
-    resetDone: "Đã đặt lại biểu mẫu",
-    categories: {
-      underweight: "Thiếu cân",
-      normal: "Bình thường",
-      overweight: "Thừa cân",
-      obese: "Béo phì"
-    },
-    tips: {
-      underweight: [
-        { icon: "restaurant", text: "Tăng cường bữa ăn giàu dinh dưỡng với protein, carbohydrate phức hợp và chất béo lành mạnh." },
-        { icon: "fitness_center", text: "Tập luyện sức mạnh để tăng khối lượng cơ bắp một cách lành mạnh." },
-        { icon: "medical_services", text: "Tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng để có kế hoạch phù hợp." }
-      ],
-      normal: [
-        { icon: "check_circle", text: "Tuyệt vời! Duy trì chế độ ăn cân bằng và tập thể dục đều đặn." },
-        { icon: "directions_run", text: "Thực hiện 150–300 phút hoạt động thể chất vừa phải mỗi tuần." },
-        { icon: "bedtime", text: "Ngủ đủ giấc (7–9 tiếng) và kiểm soát căng thẳng để duy trì sức khoẻ tốt." }
-      ],
-      overweight: [
-        { icon: "salad", text: "Điều chỉnh khẩu phần ăn, ưu tiên rau xanh, trái cây và thực phẩm ít chế biến." },
-        { icon: "directions_walk", text: "Bắt đầu với 30 phút đi bộ nhanh mỗi ngày, tăng dần cường độ theo thời gian." },
-        { icon: "local_drink", text: "Uống đủ nước (1.5–2 lít/ngày) và hạn chế đồ uống có đường." }
-      ],
-      obese: [
-        { icon: "health_and_safety", text: "Hãy gặp bác sĩ để được tư vấn kế hoạch giảm cân an toàn và hiệu quả." },
-        { icon: "monitor_heart", text: "Theo dõi các chỉ số sức khoẻ quan trọng như huyết áp, đường huyết định kỳ." },
-        { icon: "self_improvement", text: "Thay đổi lối sống từng bước: ăn uống lành mạnh kết hợp vận động nhẹ nhàng." }
-      ]
-    },
-    tableRows: [
-      { cat: "Gầy độ III", range: "< 16.0", color: "#0288D1" },
-      { cat: "Gầy độ II", range: "16.0–16.9", color: "#0288D1" },
-      { cat: "Gầy độ I", range: "17.0–18.4", color: "#0288D1" },
-      { cat: "Bình thường", range: "18.5–24.9", color: "#388E3C" },
-      { cat: "Thừa cân", range: "25.0–29.9", color: "#F57C00" },
-      { cat: "Béo phì độ I", range: "30.0–34.9", color: "#D32F2F" },
-      { cat: "Béo phì độ II", range: "35.0–39.9", color: "#D32F2F" },
-      { cat: "Béo phì độ III", range: "≥ 40.0", color: "#D32F2F" }
-    ]
+    appTitle: 'BMI Calculator',
+    inputTitle: 'Thông tin của bạn',
+    gender: 'Giới tính',
+    male: 'Nam',
+    female: 'Nữ',
+    unitSystem: 'Hệ đơn vị',
+    metric: 'Hệ mét (cm, kg)',
+    imperial: 'Hệ Anh (in, lb)',
+    height: 'Chiều cao',
+    weight: 'Cân nặng',
+    age: 'Tuổi',
+    calculate: 'Tính BMI',
+    reset: 'Đặt lại',
+    resultTitle: 'Kết quả',
+    healthyRange: 'Cân nặng lý tưởng',
+    catLabel: 'Phân loại',
+    catStatus: 'Trạng thái',
+    themeLight: 'Sáng',
+    themeDark: 'Tối',
+    themeSystem: 'Hệ thống',
+    whatIsBmi: 'BMI là gì?',
+    bmiLimits: 'Giới hạn của BMI',
+    tips: 'Lời khuyên sức khoẻ',
+    installTitle: 'Cài đặt ứng dụng',
+    installSub: 'Sử dụng BMI Calculator như một ứng dụng native',
+    installBtn: 'Cài đặt',
+    footerNote: 'BMI chỉ mang tính chất tham khảo, không thay thế tư vấn y tế.',
+    toastCalc: 'Đã tính xong!',
+    toastReset: 'Đã đặt lại',
+    errorHeight: 'Vui lòng nhập chiều cao hợp lệ',
+    errorWeight: 'Vui lòng nhập cân nặng hợp lệ',
+    errorAge: 'Vui lòng nhập tuổi hợp lệ',
+
+    // BMI categories
+    severelyUnderweight: 'Thiếu cân nghiêm trọng',
+    underweight: 'Thiếu cân',
+    normal: 'Bình thường',
+    overweight: 'Thừa cân',
+    obese1: 'Béo phì độ I',
+    obese2: 'Béo phì độ II',
+    obese3: 'Béo phì độ III',
+
+    // descriptions
+    descSeverelyUnder: 'Bạn đang thiếu cân nghiêm trọng. Hãy tham khảo ý kiến bác sĩ ngay.',
+    descUnder: 'Bạn đang thiếu cân. Nên bổ sung thêm dinh dưỡng để đạt cân nặng lý tưởng.',
+    descNormal: 'Tuyệt vời! Cân nặng của bạn đang ở mức lý tưởng. Hãy duy trì lối sống lành mạnh.',
+    descOver: 'Bạn đang thừa cân. Nên điều chỉnh chế độ ăn và tăng cường vận động.',
+    descObese1: 'Bạn đang béo phì độ I. Cần có kế hoạch giảm cân và tham khảo ý kiến bác sĩ.',
+    descObese2: 'Bạn đang béo phì độ II. Nên điều trị y tế và theo dõi sức khoẻ thường xuyên.',
+    descObese3: 'Bạn đang béo phì độ III. Cần điều trị y tế khẩn cấp.',
+
+    healthyRangeFor: 'Khoảng lý tưởng với chiều cao của bạn',
+    // Gauge labels
+    gauge16: '≤16',
+    gauge40: '≥40',
+
+    // Accordion content
+    whatIsBmiContent: '<p>BMI (Body Mass Index) hay Chỉ số khối cơ thể là đơn vị đo lường được tính bằng cách chia cân nặng (kg) cho bình phương chiều cao (m²). Đây là chỉ số được Tổ chức Y tế Thế giới (WHO) sử dụng để đánh giá mức độ gầy hay béo của một người.</p><p>Công thức: <strong>BMI = Cân nặng (kg) ÷ [Chiều cao (m)]²</strong></p>',
+    bmiLimitsContent: '<p>BMI không phân biệt được giữa khối cơ và mỡ, nên có thể không chính xác với vận động viên hoặc người có khối cơ cao.</p><p>BMI không tính đến phân bố mỡ cơ thể, tuổi tác, giới tính, chủng tộc. Đây chỉ là chỉ số tham khảo, không thay thế được chẩn đoán y tế chuyên nghiệp.</p>',
+    tipsContent: '<p>Duy trì cân nặng trong phạm vi BMI bình thường (18.5 - 24.9) bằng chế độ ăn cân bằng và vận động thường xuyên ít nhất 150 phút mỗi tuần.</p><p>Nếu BMI ngoài phạm vi bình thường, hãy tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng để được tư vấn phù hợp.</p>',
   },
   en: {
-    appName: "BMI Calculator",
-    appSub: "Body Mass Index",
-    heroTitle: "Calculate your BMI",
-    heroDesc: "Enter your details to calculate your Body Mass Index and receive personalized health tips.",
-    unitMetric: "Metric (kg, cm)",
-    unitImperial: "Imperial (lb, ft)",
-    labelGender: "Gender",
-    genderMale: "Male",
-    genderFemale: "Female",
-    labelAge: "Age",
-    unitAge: "yrs",
-    labelWeight: "Weight",
-    labelHeight: "Height",
-    btnCalc: "Calculate BMI",
-    btnReset: "Reset",
-    yourBmi: "Your BMI",
-    catUnder: "Underweight",
-    catNormal: "Normal",
-    catOver: "Overweight",
-    catObese: "Obese",
-    tipsTitle: "Health Tips",
-    tableTitle: "BMI Classification (WHO)",
-    colCat: "Category",
-    colBmi: "BMI (kg/m²)",
-    colStatus: "Status",
-    errAge: "Invalid age (1–120)",
-    errWeight: "Invalid weight",
-    errHeight: "Invalid height",
-    themeLight: "Light",
-    themeDark: "Dark",
-    themeSystem: "System",
-    resetDone: "Form has been reset",
-    categories: {
-      underweight: "Underweight",
-      normal: "Normal weight",
-      overweight: "Overweight",
-      obese: "Obese"
-    },
-    tips: {
-      underweight: [
-        { icon: "restaurant", text: "Increase nutrient-rich meals with protein, complex carbs, and healthy fats." },
-        { icon: "fitness_center", text: "Incorporate strength training to build muscle mass in a healthy way." },
-        { icon: "medical_services", text: "Consult a doctor or dietitian for a personalized weight gain plan." }
-      ],
-      normal: [
-        { icon: "check_circle", text: "Great job! Maintain a balanced diet and regular physical activity." },
-        { icon: "directions_run", text: "Aim for 150–300 minutes of moderate-intensity exercise per week." },
-        { icon: "bedtime", text: "Get 7–9 hours of quality sleep and manage stress for optimal health." }
-      ],
-      overweight: [
-        { icon: "salad", text: "Adjust portions and prioritize vegetables, fruits, and minimally processed foods." },
-        { icon: "directions_walk", text: "Start with 30 minutes of brisk walking daily and gradually increase intensity." },
-        { icon: "local_drink", text: "Stay hydrated with 1.5–2L of water per day and limit sugary drinks." }
-      ],
-      obese: [
-        { icon: "health_and_safety", text: "Consult a healthcare provider for a safe and effective weight management plan." },
-        { icon: "monitor_heart", text: "Monitor key health indicators such as blood pressure and blood sugar regularly." },
-        { icon: "self_improvement", text: "Make gradual lifestyle changes: a balanced diet combined with light exercise." }
-      ]
-    },
-    tableRows: [
-      { cat: "Severe Thinness", range: "< 16.0", color: "#0288D1" },
-      { cat: "Moderate Thinness", range: "16.0–16.9", color: "#0288D1" },
-      { cat: "Mild Thinness", range: "17.0–18.4", color: "#0288D1" },
-      { cat: "Normal weight", range: "18.5–24.9", color: "#388E3C" },
-      { cat: "Overweight", range: "25.0–29.9", color: "#F57C00" },
-      { cat: "Obese Class I", range: "30.0–34.9", color: "#D32F2F" },
-      { cat: "Obese Class II", range: "35.0–39.9", color: "#D32F2F" },
-      { cat: "Obese Class III", range: "≥ 40.0", color: "#D32F2F" }
-    ]
+    appTitle: 'BMI Calculator',
+    inputTitle: 'Your Information',
+    gender: 'Gender',
+    male: 'Male',
+    female: 'Female',
+    unitSystem: 'Unit System',
+    metric: 'Metric (cm, kg)',
+    imperial: 'Imperial (in, lb)',
+    height: 'Height',
+    weight: 'Weight',
+    age: 'Age',
+    calculate: 'Calculate BMI',
+    reset: 'Reset',
+    resultTitle: 'Result',
+    healthyRange: 'Ideal Weight Range',
+    catLabel: 'Category',
+    catStatus: 'Status',
+    themeLight: 'Light',
+    themeDark: 'Dark',
+    themeSystem: 'System',
+    whatIsBmi: 'What is BMI?',
+    bmiLimits: 'Limitations of BMI',
+    tips: 'Health Tips',
+    installTitle: 'Install App',
+    installSub: 'Use BMI Calculator as a native app',
+    installBtn: 'Install',
+    footerNote: 'BMI is for reference only and does not replace medical advice.',
+    toastCalc: 'Calculation done!',
+    toastReset: 'Reset done',
+    errorHeight: 'Please enter a valid height',
+    errorWeight: 'Please enter a valid weight',
+    errorAge: 'Please enter a valid age',
+
+    severelyUnderweight: 'Severely Underweight',
+    underweight: 'Underweight',
+    normal: 'Normal',
+    overweight: 'Overweight',
+    obese1: 'Obese Class I',
+    obese2: 'Obese Class II',
+    obese3: 'Obese Class III',
+
+    descSeverelyUnder: 'You are severely underweight. Please consult a doctor immediately.',
+    descUnder: 'You are underweight. Consider increasing caloric intake to reach a healthy weight.',
+    descNormal: 'Great! Your weight is in the ideal range. Keep up the healthy lifestyle!',
+    descOver: 'You are overweight. Consider adjusting your diet and increasing physical activity.',
+    descObese1: 'You are obese (Class I). A weight-loss plan and medical consultation are recommended.',
+    descObese2: 'You are obese (Class II). Regular medical monitoring and treatment are needed.',
+    descObese3: 'You are obese (Class III). Urgent medical treatment is required.',
+
+    healthyRangeFor: 'Ideal range for your height',
+    gauge16: '≤16',
+    gauge40: '≥40',
+
+    whatIsBmiContent: '<p>BMI (Body Mass Index) is a measure calculated by dividing a person\'s weight in kilograms by the square of their height in meters (kg/m²). It is used by the World Health Organization (WHO) to assess whether a person is underweight, normal weight, overweight, or obese.</p><p>Formula: <strong>BMI = Weight (kg) ÷ [Height (m)]²</strong></p>',
+    bmiLimitsContent: '<p>BMI does not distinguish between muscle mass and fat mass, so it may be inaccurate for athletes or people with high muscle mass.</p><p>BMI does not account for fat distribution, age, gender, or ethnicity. It is a reference tool only and should not replace professional medical diagnosis.</p>',
+    tipsContent: '<p>Maintain a weight within the normal BMI range (18.5 - 24.9) through a balanced diet and regular exercise — at least 150 minutes per week.</p><p>If your BMI is outside the normal range, consult a doctor or nutritionist for personalized advice.</p>',
   }
 };
 
-// ========== STATE ==========
-let state = {
-  lang: 'vi',
-  unit: 'metric',
-  theme: 'system'
+const BMI_CATEGORIES = [
+  { key: 'severelyUnderweight', min: 0, max: 16, color: '#1565C0', icon: 'arrow_downward', statusIcon: 'warning' },
+  { key: 'underweight', min: 16, max: 18.5, color: '#2196F3', icon: 'arrow_downward', statusIcon: 'info' },
+  { key: 'normal', min: 18.5, max: 25, color: '#4CAF50', icon: 'check', statusIcon: 'check_circle' },
+  { key: 'overweight', min: 25, max: 30, color: '#FF9800', icon: 'arrow_upward', statusIcon: 'warning' },
+  { key: 'obese1', min: 30, max: 35, color: '#F44336', icon: 'arrow_upward', statusIcon: 'error' },
+  { key: 'obese2', min: 35, max: 40, color: '#B71C1C', icon: 'arrow_upward', statusIcon: 'error' },
+  { key: 'obese3', min: 40, max: Infinity, color: '#4A148C', icon: 'arrow_upward', statusIcon: 'dangerous' },
+];
+
+const DESC_MAP = {
+  severelyUnderweight: 'descSeverelyUnder',
+  underweight: 'descUnder',
+  normal: 'descNormal',
+  overweight: 'descOver',
+  obese1: 'descObese1',
+  obese2: 'descObese2',
+  obese3: 'descObese3',
 };
 
-// Load from localStorage
-try {
-  const saved = JSON.parse(localStorage.getItem('bmi_prefs') || '{}');
+// ===== LOAD SETTINGS =====
+function loadSettings() {
+  const saved = JSON.parse(localStorage.getItem('bmiSettings') || '{}');
   if (saved.lang) state.lang = saved.lang;
-  if (saved.unit) state.unit = saved.unit;
   if (saved.theme) state.theme = saved.theme;
-} catch(e) {}
-
-// ========== THEME ==========
-function applyTheme() {
-  const t = state.theme;
-  let resolved = t;
-  if (t === 'system') {
-    resolved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  document.documentElement.setAttribute('data-theme', resolved);
-  const icon = document.getElementById('themeIcon');
-  if (icon) icon.textContent = t === 'dark' ? 'dark_mode' : t === 'light' ? 'light_mode' : 'brightness_auto';
-
-  document.querySelectorAll('.theme-opt').forEach(btn => {
-    btn.classList.toggle('selected', btn.dataset.themeVal === t);
-  });
+  if (saved.gender) state.gender = saved.gender;
+  if (saved.unit) state.unit = saved.unit;
+  if (saved.height) state.height = saved.height;
+  if (saved.weight) state.weight = saved.weight;
+  if (saved.age) state.age = saved.age;
 }
 
-function setTheme(val) {
-  state.theme = val;
-  savePrefs();
+function saveSettings() {
+  localStorage.setItem('bmiSettings', JSON.stringify(state));
+}
+
+// ===== APPLY ALL =====
+function applyAll() {
+  applyLang();
   applyTheme();
-  closeThemeMenu();
+  applyGender();
+  applyUnit();
+  applyInputValues();
+}
+
+// ===== LANGUAGE =====
+function setLang(lang) {
+  state.lang = lang;
+  saveSettings();
+  applyLang();
+}
+
+function applyLang() {
+  const L = i18n[state.lang];
+  document.documentElement.lang = state.lang;
+
+  // Toggle lang buttons
+  document.getElementById('langVI').classList.toggle('active', state.lang === 'vi');
+  document.getElementById('langEN').classList.toggle('active', state.lang === 'en');
+
+  // Apply text
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (L[key]) el.textContent = L[key];
+  });
+
+  // Apply HTML content
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (L[key]) el.innerHTML = L[key];
+  });
+
+  // Update height/weight units display
+  updateUnitDisplay();
+
+  // Re-render result if visible
+  if (document.getElementById('resultCard').classList.contains('show')) {
+    renderResult(lastBMI);
+  }
+}
+
+// ===== THEME =====
+function setTheme(theme) {
+  state.theme = theme;
+  saveSettings();
+  applyTheme();
+  toggleThemeMenu();
+}
+
+function applyTheme() {
+  const root = document.documentElement;
+  const icons = { light: 'light_mode', dark: 'dark_mode', system: 'brightness_auto' };
+  document.getElementById('themeIcon').textContent = icons[state.theme];
+
+  // Update selected option
+  document.querySelectorAll('[data-theme-opt]').forEach(btn => {
+    btn.classList.toggle('selected', btn.getAttribute('data-theme-opt') === state.theme);
+  });
+
+  // Apply scheme
+  if (state.theme === 'system') {
+    root.removeAttribute('data-scheme');
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-scheme', isDark ? 'dark' : 'light');
+  } else {
+    root.setAttribute('data-scheme', state.theme);
+  }
 }
 
 function toggleThemeMenu() {
   document.getElementById('themeMenu').classList.toggle('open');
 }
 
-function closeThemeMenu() {
-  document.getElementById('themeMenu').classList.remove('open');
-}
-
-document.addEventListener('click', e => {
-  if (!e.target.closest('.theme-menu-wrap')) closeThemeMenu();
+// Close theme menu on outside click
+document.addEventListener('click', (e) => {
+  const wrapper = document.querySelector('.theme-menu-wrapper');
+  if (!wrapper.contains(e.target)) {
+    document.getElementById('themeMenu').classList.remove('open');
+  }
 });
 
+// System theme change
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
   if (state.theme === 'system') applyTheme();
 });
 
-// ========== LANGUAGE ==========
-function applyLang() {
-  const s = STRINGS[state.lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (s[key] !== undefined) el.textContent = s[key];
-  });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === state.lang);
-  });
-  document.documentElement.lang = state.lang;
-
-  // Update unit age label
-  document.querySelector('[data-i18n="unitAge"]').textContent = s.unitAge;
+// ===== GENDER =====
+function setGender(gender) {
+  state.gender = gender;
+  saveSettings();
+  applyGender();
 }
 
-function setLang(lang) {
-  state.lang = lang;
-  savePrefs();
-  applyLang();
-  // Re-render result if visible
-  if (document.getElementById('resultSection').classList.contains('visible')) {
-    renderResult(lastBmi, lastCategory);
-  }
+function applyGender() {
+  document.getElementById('genderMale').classList.toggle('active', state.gender === 'male');
+  document.getElementById('genderFemale').classList.toggle('active', state.gender === 'female');
 }
 
-// ========== UNIT ==========
+// ===== UNIT =====
 function setUnit(unit) {
   state.unit = unit;
-  savePrefs();
-  document.querySelectorAll('.seg-btn').forEach(b => b.classList.toggle('active', b.dataset.unit === unit));
-  document.getElementById('heightMetricField').style.display = unit === 'metric' ? '' : 'none';
-  document.getElementById('heightImperialField').style.display = unit === 'imperial' ? '' : 'none';
-  document.getElementById('weightUnit').textContent = unit === 'metric' ? 'kg' : 'lb';
-  // Clear errors
-  hideAllErrors();
+  saveSettings();
+  applyUnit();
+  updateUnitDisplay();
 }
 
-// ========== SAVE PREFS ==========
-function savePrefs() {
-  try { localStorage.setItem('bmi_prefs', JSON.stringify({ lang: state.lang, unit: state.unit, theme: state.theme })); } catch(e) {}
+function applyUnit() {
+  document.getElementById('unitMetric').classList.toggle('active', state.unit === 'metric');
+  document.getElementById('unitImperial').classList.toggle('active', state.unit === 'imperial');
 }
 
-// ========== VALIDATION ==========
-function hideAllErrors() {
-  document.querySelectorAll('.field-error').forEach(e => e.classList.remove('show'));
-}
+function updateUnitDisplay() {
+  const isMetric = state.unit === 'metric';
 
-function showError(id) {
-  document.getElementById(id).classList.add('show');
-}
-
-function validate() {
-  hideAllErrors();
-  const age = parseFloat(document.getElementById('ageInput').value);
-  const weight = parseFloat(document.getElementById('weightInput').value);
-  let valid = true;
-
-  if (!age || age < 1 || age > 120) { showError('ageError'); valid = false; }
-  if (!weight || weight <= 0) { showError('weightError'); valid = false; }
-
-  if (state.unit === 'metric') {
-    const h = parseFloat(document.getElementById('heightCmInput').value);
-    if (!h || h <= 0 || h > 300) { showError('heightError'); valid = false; }
+  // Height slider
+  const slider = document.getElementById('heightSlider');
+  if (isMetric) {
+    slider.min = 50; slider.max = 250; slider.step = 1;
+    const val = state.height;
+    slider.value = val;
+    document.getElementById('heightDisplay').textContent = val + ' cm';
+    ['50 cm','100 cm','150 cm','200 cm','250 cm'].forEach((t, i) =>
+      document.getElementById('htTick' + (i+1)).textContent = t);
   } else {
-    const ft = parseFloat(document.getElementById('heightFtInput').value);
-    const inch = parseFloat(document.getElementById('heightInInput').value) || 0;
-    const totalIn = ft * 12 + inch;
-    if (!ft || totalIn <= 0) { showError('heightImpError'); valid = false; }
+    slider.min = 20; slider.max = 96; slider.step = 1;
+    const inches = Math.round(state.height / 2.54);
+    const clamped = Math.max(20, Math.min(96, inches));
+    slider.value = clamped;
+    const ft = Math.floor(clamped / 12), inc = clamped % 12;
+    document.getElementById('heightDisplay').textContent = ft + "'" + inc + '"';
+    ["1'8\"","3'3\"","4'11\"","6'7\"","8'0\""].forEach((t, i) =>
+      document.getElementById('htTick' + (i+1)).textContent = t);
   }
-  return valid;
+
+  // Weight unit label
+  document.getElementById('weightUnit').textContent = isMetric ? 'kg' : 'lb';
+  const wInput = document.getElementById('weightInput');
+  if (isMetric) {
+    wInput.value = state.weight;
+    wInput.min = 1; wInput.max = 500;
+  } else {
+    wInput.value = Math.round(state.weight * 2.20462 * 10) / 10;
+    wInput.min = 2; wInput.max = 1100;
+  }
 }
 
-// ========== BMI CALC ==========
-let lastBmi = null, lastCategory = null;
-
-function getBmiAndCategory(bmi) {
-  if (bmi < 18.5) return { cat: 'underweight', segIdx: 0 };
-  if (bmi < 25) return { cat: 'normal', segIdx: 1 };
-  if (bmi < 30) return { cat: 'overweight', segIdx: 2 };
-  return { cat: 'obese', segIdx: 3 };
+function applyInputValues() {
+  document.getElementById('heightSlider').value =
+    state.unit === 'metric' ? state.height : Math.round(state.height / 2.54);
+  document.getElementById('weightInput').value =
+    state.unit === 'metric' ? state.weight : Math.round(state.weight * 2.20462 * 10) / 10;
+  document.getElementById('ageInput').value = state.age;
+  updateUnitDisplay();
 }
 
-const CATEGORY_STYLES = {
-  underweight: { color: 'var(--color-underweight)', icon: 'arrow_downward', bg: 'rgba(2,136,209,0.12)' },
-  normal: { color: 'var(--color-normal)', icon: 'check_circle', bg: 'rgba(56,142,60,0.12)' },
-  overweight: { color: 'var(--color-overweight)', icon: 'arrow_upward', bg: 'rgba(245,124,0,0.12)' },
-  obese: { color: 'var(--color-obese)', icon: 'warning', bg: 'rgba(211,47,47,0.12)' }
-};
+// ===== SLIDER INPUTS =====
+function onHeightSlider() {
+  const slider = document.getElementById('heightSlider');
+  const val = parseInt(slider.value);
+  if (state.unit === 'metric') {
+    state.height = val;
+    document.getElementById('heightDisplay').textContent = val + ' cm';
+  } else {
+    state.height = Math.round(val * 2.54);
+    const ft = Math.floor(val / 12), inc = val % 12;
+    document.getElementById('heightDisplay').textContent = ft + "'" + inc + '"';
+  }
+  saveSettings();
+}
+
+function onWeightInput() {
+  const val = parseFloat(document.getElementById('weightInput').value);
+  if (!isNaN(val)) {
+    state.weight = state.unit === 'metric' ? val : Math.round(val / 2.20462 * 10) / 10;
+    saveSettings();
+  }
+}
+
+function onAgeInput() {
+  const val = parseInt(document.getElementById('ageInput').value);
+  if (!isNaN(val) && val >= 2 && val <= 120) {
+    state.age = val;
+    saveSettings();
+  }
+}
+
+function stepAge(delta) {
+  const input = document.getElementById('ageInput');
+  let val = parseInt(input.value) + delta;
+  val = Math.max(2, Math.min(120, val));
+  input.value = val;
+  state.age = val;
+  saveSettings();
+}
+
+// ===== CALCULATE =====
+let lastBMI = null;
 
 function calculate() {
-  if (!validate()) return;
+  const L = i18n[state.lang];
+  const heightM = state.height / 100;
+  const weight = state.weight;
 
-  const weight = parseFloat(document.getElementById('weightInput').value);
-  let heightM;
+  if (!heightM || heightM < 0.3 || heightM > 3) { showToast(L.errorHeight, true); return; }
+  if (!weight || weight < 1 || weight > 500) { showToast(L.errorWeight, true); return; }
+  if (!state.age || state.age < 2 || state.age > 120) { showToast(L.errorAge, true); return; }
 
+  const bmi = weight / (heightM * heightM);
+  lastBMI = bmi;
+  renderResult(bmi);
+  showToast(L.toastCalc);
+
+  setTimeout(() => {
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 200);
+}
+
+function renderResult(bmi) {
+  if (!bmi) return;
+  const L = i18n[state.lang];
+  const cat = BMI_CATEGORIES.find(c => bmi >= c.min && bmi < c.max) || BMI_CATEGORIES[BMI_CATEGORIES.length - 1];
+
+  // Show card
+  const card = document.getElementById('resultCard');
+  card.style.display = 'block';
+  requestAnimationFrame(() => card.classList.add('show'));
+
+  // BMI circle
+  document.getElementById('bmiValueBig').textContent = bmi.toFixed(1);
+  const circle = document.getElementById('bmiCircle');
+  circle.style.background = `linear-gradient(135deg, ${cat.color}dd, ${cat.color})`;
+  circle.style.boxShadow = `0 6px 20px ${cat.color}55`;
+
+  // Category & desc
+  document.getElementById('resultCategory').textContent = L[cat.key];
+  document.getElementById('resultCategory').style.color = cat.color;
+  document.getElementById('resultDesc').textContent = L[DESC_MAP[cat.key]];
+
+  // Status badge
+  const badge = document.getElementById('statusBadge');
+  badge.style.background = cat.color + '22';
+  badge.style.color = cat.color;
+  badge.innerHTML = `<span class="material-icons-round" style="font-size:14px">${cat.statusIcon}</span> BMI: ${bmi.toFixed(2)}`;
+
+  // Gauge thumb (BMI 10 to 45 scale)
+  const gaugeMin = 10, gaugeMax = 45;
+  const pct = Math.max(0, Math.min(100, ((bmi - gaugeMin) / (gaugeMax - gaugeMin)) * 100));
+  const thumb = document.getElementById('gaugeThumb');
+  thumb.style.left = pct + '%';
+  thumb.style.setProperty('--result-color', cat.color);
+  thumb.style.borderColor = cat.color;
+
+  // Healthy weight range
+  const hm = state.height / 100;
+  const minW = (18.5 * hm * hm).toFixed(1);
+  const maxW = (24.9 * hm * hm).toFixed(1);
+  let rangeStr;
   if (state.unit === 'metric') {
-    heightM = parseFloat(document.getElementById('heightCmInput').value) / 100;
+    rangeStr = `${minW} kg – ${maxW} kg`;
   } else {
-    const ft = parseFloat(document.getElementById('heightFtInput').value);
-    const inch = parseFloat(document.getElementById('heightInInput').value) || 0;
-    const totalIn = ft * 12 + inch;
-    heightM = totalIn * 0.0254;
-    // Convert lb to kg
+    const minLb = (parseFloat(minW) * 2.20462).toFixed(1);
+    const maxLb = (parseFloat(maxW) * 2.20462).toFixed(1);
+    rangeStr = `${minLb} lb – ${maxLb} lb`;
   }
+  document.getElementById('healthyRange').textContent = rangeStr;
 
-  let weightKg = state.unit === 'metric' ? weight : weight * 0.453592;
-  const bmi = weightKg / (heightM * heightM);
-
-  lastBmi = bmi;
-  const { cat, segIdx } = getBmiAndCategory(bmi);
-  lastCategory = { cat, segIdx };
-
-  renderResult(bmi, { cat, segIdx });
-}
-
-function renderResult(bmi, { cat, segIdx }) {
-  const s = STRINGS[state.lang];
-  const style = CATEGORY_STYLES[cat];
-
-  // Value
-  document.getElementById('bmiValue').innerHTML =
-    bmi.toFixed(1) + '<span class="result-unit"> kg/m²</span>';
-  document.getElementById('bmiValue').style.color = style.color;
-
-  // Badge
-  const badge = document.getElementById('categoryBadge');
-  badge.style.background = style.bg;
-  badge.style.color = style.color;
-  badge.innerHTML = `<span class="material-symbols-rounded">${style.icon}</span><span>${s.categories[cat]}</span>`;
-
-  // Gauge
-  for (let i = 0; i < 4; i++) {
-    document.getElementById('seg' + i).classList.toggle('active', i === segIdx);
-  }
-
-  // Tips
-  const tipsEl = document.getElementById('tipsList');
-  tipsEl.innerHTML = s.tips[cat].map(tip => `
-    <div class="tip-item" style="border-color:${style.color};color:${style.color}">
-      <span class="material-symbols-rounded">${tip.icon}</span>
-      <span style="color:var(--md-sys-color-on-surface)">${tip.text}</span>
-    </div>
-  `).join('');
-
-  // Table
-  buildTable(cat);
-
-  // Show result
-  const rs = document.getElementById('resultSection');
-  rs.classList.add('visible');
-  rs.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function buildTable(currentCat) {
-  const s = STRINGS[state.lang];
-  const catMapping = ['underweight', 'underweight', 'underweight', 'normal', 'overweight', 'obese', 'obese', 'obese'];
-  const tbody = document.getElementById('bmiTableBody');
-  tbody.innerHTML = s.tableRows.map((row, i) => {
-    const rowCat = catMapping[i];
-    const isHighlight = rowCat === currentCat;
-    return `<tr class="${isHighlight ? 'highlight' : ''}">
-      <td><span class="cat-dot" style="background:${row.color}"></span>${row.cat}</td>
-      <td>${row.range}</td>
-      <td style="color:${row.color}">${isHighlight ? '← ' + STRINGS[state.lang].categories[currentCat] : ''}</td>
-    </tr>`;
-  }).join('');
-}
-
-function resetForm() {
-  document.getElementById('ageInput').value = '';
-  document.getElementById('weightInput').value = '';
-  document.getElementById('heightCmInput').value = '';
-  document.getElementById('heightFtInput').value = '';
-  document.getElementById('heightInInput').value = '';
-  document.querySelector('input[name="gender"][value="male"]').checked = true;
-  hideAllErrors();
-  document.getElementById('resultSection').classList.remove('visible');
-  lastBmi = null; lastCategory = null;
-  showSnackbar(STRINGS[state.lang].resetDone);
-}
-
-// ========== SNACKBAR ==========
-let snackTimer;
-function showSnackbar(msg) {
-  const el = document.getElementById('snackbar');
-  el.textContent = msg;
-  el.classList.add('show');
-  clearTimeout(snackTimer);
-  snackTimer = setTimeout(() => el.classList.remove('show'), 2800);
-}
-
-// ========== INIT ==========
-function init() {
-  applyTheme();
-  applyLang();
-  setUnit(state.unit);
-
-  // Update seg btns
-  document.querySelectorAll('.seg-btn').forEach(b => b.classList.toggle('active', b.dataset.unit === state.unit));
-
-  // Enter key on inputs
-  document.querySelectorAll('input[type="number"]').forEach(inp => {
-    inp.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
-    // Remove error on input
-    inp.addEventListener('input', () => {
-      inp.closest('.form-field')?.querySelector('.field-error')?.classList.remove('show');
-    });
+  // Category table
+  const tbody = document.getElementById('catTableBody');
+  tbody.innerHTML = '';
+  BMI_CATEGORIES.forEach(c => {
+    const tr = document.createElement('tr');
+    if (c.key === cat.key) tr.classList.add('highlighted');
+    const range = c.max === Infinity ? `≥ ${c.min}` : `${c.min} – ${c.max}`;
+    tr.innerHTML = `
+      <td><span class="cat-dot" style="background:${c.color}"></span>${L[c.key]}</td>
+      <td>${range}</td>
+      <td><span class="material-icons-round" style="font-size:18px;vertical-align:middle;color:${c.color}">${c.key === cat.key ? 'check_circle' : 'radio_button_unchecked'}</span></td>
+    `;
+    tbody.appendChild(tr);
   });
 }
 
-init();
+// ===== RESET =====
+function resetAll() {
+  state.height = 170;
+  state.weight = 65;
+  state.age = 25;
+  state.gender = 'male';
+  saveSettings();
+  applyGender();
+  applyInputValues();
+  document.getElementById('resultCard').classList.remove('show');
+  setTimeout(() => { document.getElementById('resultCard').style.display = 'none'; }, 300);
+  lastBMI = null;
+  showToast(i18n[state.lang].toastReset);
+}
+
+// ===== ACCORDION =====
+function toggleAccordion(id) {
+  const item = document.getElementById(id);
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ===== TOAST =====
+let toastTimer;
+function showToast(msg, isError = false) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  const icon = toast.querySelector('.material-icons-round');
+  icon.textContent = isError ? 'error_outline' : 'check_circle';
+  icon.style.color = isError ? '#FF6B6B' : '#69F0AE';
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// ===== PWA =====
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const dismissed = localStorage.getItem('installDismissed');
+  if (!dismissed) {
+    document.getElementById('installBanner').classList.add('show');
+  }
+});
+
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  document.getElementById('installBanner').classList.remove('show');
+});
+
+function dismissInstall() {
+  localStorage.setItem('installDismissed', '1');
+  document.getElementById('installBanner').classList.remove('show');
+}
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
+
+// ===== INIT =====
+loadSettings();
+applyAll();
 </script>
 </body>
 </html>
